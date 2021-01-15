@@ -35,6 +35,7 @@
                         <div class="profile-stat">
                             <div class="row">
                                 <div class="col-md-4 stat-item">
+                                    <!-- datasiswa -> tabelmapel -> jumlah mapel-->
                                     {{$xsiswa->xmapel->count()}} <span>Mata Pelajaran</span>
                                 </div>
                                 <div class="col-md-4 stat-item">
