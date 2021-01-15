@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="brand">
-        <a href="index.html"><img src="{{asset('admin0/logoheroes.png')}}" alt="logoheroes" class="img-responsive logo"></a>
+        <a href="index.html"><img src="{{asset('admin0/logo-dark.png')}}" alt="logoheroes" class="img-responsive logo"></a>
     </div>
     <div class="container-fluid">
         <div class="navbar-btn">
