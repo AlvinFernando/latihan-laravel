@@ -8,7 +8,7 @@ class ApiController extends Controller
 {
     //
     public function editnilai(Request $request, $id){
-        $xsiswa = \App\Xsiswa::find($id);
+        $xsiswa = \App\Xsiswa::find($id); //datasiswa = url file model siswa
         $xsiswa->xmapel()->updateExistingPivot($request->pk,['nilai' => $request->value]);
     }
 }
