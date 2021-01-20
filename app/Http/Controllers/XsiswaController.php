@@ -27,6 +27,8 @@ class XsiswaController extends Controller
             'agama' =>'required',
             'avatar' => 'mimes:jpg,png'
         ]);
+
+
         //insert ke table user
         $user = new \App\User;
         $user->role = 'xsiswa';
@@ -80,6 +82,7 @@ class XsiswaController extends Controller
         $xcategories = [];
         $xdata = [];
         
+        //menampilkan penambahan data
         foreach($xmatapelajaran as $xmp) {
             if($xsiswa->xmapel()->wherePivot('xmapel_id', $xmp->id)->first()){
                 $xcategories[] = $xmp->nama;
@@ -95,6 +98,7 @@ class XsiswaController extends Controller
             'xdata' => $xdata]);
     }
 
+    //input nilai
     public function addnilai(Request $request, $idsiswa){
         //dd($request->all());
         $xsiswa = \App\Xsiswa::find($idsiswa);
