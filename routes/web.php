@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'XSiteController@home');
+Route::get('/about', 'XSiteController@about');
 
 Route::get('/login', 'AuthController@login')->name('login');
 Route::post('/postlogin', 'AuthController@postlogin');
@@ -25,12 +24,15 @@ Route::get('/logout', 'AuthController@logout');
 Route::group(['middleware' => ['auth', 'checkrole:admin']], function () {
     Route::get('/xsiswa', 'XsiswaController@index');
     Route::post('/xsiswa/create', 'XsiswaController@create');
-    Route::get('/xsiswa/{id}/edit', 'XsiswaController@edit');
-    Route::post('/xsiswa/{id}/update', 'XsiswaController@update');
-    Route::get('/xsiswa/{id}/delete', 'XsiswaController@delete');
-    Route::get('/xsiswa/{id}/profile', 'XsiswaController@profile');
-    Route::post('/xsiswa/{id}/addnilai', 'XsiswaController@addnilai');
-    Route::get('/xsiswa/{id}/{idxmapel}/deletenilai', 'XsiswaController@deletenilai');
+    Route::get('/xsiswa/{xsiswa}/edit', 'XsiswaController@edit');
+    Route::post('/xsiswa/{xsiswa}/update', 'XsiswaController@update');
+    Route::get('/xsiswa/{xsiswa}/delete', 'XsiswaController@delete');
+    Route::get('/xsiswa/{xsiswa}/profile', 'XsiswaController@profile');
+    Route::post('/xsiswa/{xsiswa}/addnilai', 'XsiswaController@addnilai');
+    Route::get('/xsiswa/{xsiswa}/{idxmapel}/deletenilai', 'XsiswaController@deletenilai');
+    Route::get('/xguru/{id}/profile', 'XguruController@profile');
+    Route::get('/xsiswa/exportExcel', 'XsiswaController@exportExcel');
+    Route::get('/xsiswa/exportPDF', 'XsiswaController@exportPDF');
 });
 
 

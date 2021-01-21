@@ -39,7 +39,7 @@
                                     {{$xsiswa->xmapel->count()}} <span>Mata Pelajaran</span>
                                 </div>
                                 <div class="col-md-4 stat-item">
-                                    15 <span>Awards</span>
+                                    {{$xsiswa->rataRataNilai()}} <span>Rata-rata Nilai</span>
                                 </div>
                                 <div class="col-md-4 stat-item">
                                     2174 <span>Points</span>
@@ -87,6 +87,7 @@
                                         <td>NAMA</td>
                                         <td>SEMESTER</td>
                                         <td>NILAI</td>
+                                        <td>GURU</td>
                                         <td>Aksi</td>
                                     </tr>
                                 </thead>
@@ -99,6 +100,7 @@
                                         <td><a href="#" class="nilai" data-type="text" data-pk="{{$xmapel->id}}" 
                                             data-url="/api/xsiswa/{{$xsiswa->id}}/editnilai" data-title="Masukkan Nilai">
                                             {{$xmapel->pivot->nilai}}</a></td>
+                                        <td><a href="/xguru/{{$xmapel->xguru_id}}/profile">{{$xmapel->xguru->nama}}</a></td>
                                         <td>
                                             <a href="/xsiswa/{{$xsiswa->id}}/{{$xmapel->id}}/deletenilai" class="btn btn-danger btn-sm" 
                                                 onclick="return confirm('Yakin Anda Menghapusnya?')">Delete</a>
@@ -124,7 +126,6 @@
         </div>
         <!-- END MAIN CONTENT -->
     </div>
-
         
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -10,6 +10,8 @@
                             <div class="panel-heading">
                                 <h3 class="panel-title">Data Siswa</h3>
                                 <div class="right">
+                                    <a href="/xsiswa/exportExcel" class="btn btn-sm btn-primary">Export Excel</a>
+                                    <a href="/xsiswa/exportPDF" class="btn btn-sm btn-danger">Export PDF</a>
                                     <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal"><i class="lnr lnr-plus-circle"></i></button>
                                 </div>
                                 
@@ -23,6 +25,7 @@
                                             <td>Jenis Kelamin</td>
                                             <td>Agama</td>
                                             <td>Alamat</td>
+                                            <td>Rata-rata Nilai</td>
                                             <td>Aksi</td>
                                         </tr>
                                     </thead>
@@ -33,11 +36,11 @@
                                             <td><a href="/xsiswa/{{$xsiswa->id}}/profile">{{$xsiswa->nama_belakang}}</a></td>
                                             <td>{{$xsiswa->jk}}</td>
                                             <td>{{$xsiswa->agama}}</td>
-                                            <td>{{$xsiswa->alamat}}</td>
+                                            <td>{{$xsiswa->alamat}}</td> 
+                                            <td>{{$xsiswa->rataRataNilai()}}</td>
                                             <td>
                                                 <a href="/xsiswa/{{$xsiswa->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
-                                                <a href="/xsiswa/{{$xsiswa->id}}/delete" class="btn btn-danger btn-sm" 
-                                                    onclick="return confirm('Yakin Anda Menghapusnya?')">Delete</a>
+                                                <a href="#" class="btn btn-danger btn-sm delete-xsiswa" xsiswa-id={{$xsiswa->id}}>Delete</a>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -134,3 +137,26 @@
         </div>
     </div>
 @stop
+
+@section('footer')
+    <script>
+        $('.delete-xsiswa').click(function(){
+            var xsiswa_id = $(this).attr('xsiswa-id');
+            swal({
+                title: "Yakin  ? ",
+                text: "Mau menghapus data siswa dengan id "+xsiswa_id+" ?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+                })
+                .then((willDelete) => {
+                console.log(willDelete);
+                if (willDelete) {
+                    window.location = "/xsiswa/"+xsiswa_id+"/delete";
+                } else {
+                    swal("Your imaginary file is safe!");
+                }
+            });
+        });
+    </script>
+@endsection

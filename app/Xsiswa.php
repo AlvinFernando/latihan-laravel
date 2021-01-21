@@ -18,7 +18,24 @@ class Xsiswa extends Model
         return asset('images/'.$this->avatar);
     }
 
+    //Many to Many
     public function xmapel(){
         return $this->belongsToMany(Xmapel::class)->withPivot(['nilai'])->withTimeStamps();
+    }
+
+    public function rataRataNilai(){
+        //ambil nilai2
+        $total = 0;
+        $hitung = 0;
+        if($this->xmapel->isNotEmpty()){
+            foreach($this->xmapel as $xmapel){
+                $total += $xmapel->pivot->nilai;
+                $hitung++;
+            }     
+        }return $total != 0 ? round($total/$hitung) : $total;
+    }
+
+    public function nama_lengkap(){
+        return $this->nama_depan.' '.$this->nama_belakang;
     }
 }
