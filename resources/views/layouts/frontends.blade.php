@@ -5,7 +5,9 @@
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-        <title>Mentor Bootstrap Template - Index</title>
+        <!--Setting config title-->
+        <title>{{config('xsekolah.title')}}</title>
+        
         <meta content="" name="description">
         <meta content="" name="keywords">
 
@@ -42,41 +44,19 @@
         <header id="header" class="fixed-top">
             <div class="container d-flex align-items-center">
 
-            <h1 class="logo mr-auto"><a href="index.html">Mentor</a></h1>
+            <h1 class="logo mr-auto"><a href="/">E-LEARNING</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="logo mr-auto"><img src="{{asset('/frontend/assets')}}/img/logo.png" alt="" class="img-fluid"></a>-->
 
             <nav class="nav-menu d-none d-lg-block">
                 <ul>
-                <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="courses.html">Courses</a></li>
-                <li><a href="trainers.html">Trainers</a></li>
-                <li><a href="events.html">Events</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
-                <li class="drop-down"><a href="">Drop Down</a>
-                    <ul>
-                    <li><a href="#">Drop Down 1</a></li>
-                    <li class="drop-down"><a href="#">Deep Drop Down</a>
-                        <ul>
-                        <li><a href="#">Deep Drop Down 1</a></li>
-                        <li><a href="#">Deep Drop Down 2</a></li>
-                        <li><a href="#">Deep Drop Down 3</a></li>
-                        <li><a href="#">Deep Drop Down 4</a></li>
-                        <li><a href="#">Deep Drop Down 5</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Drop Down 2</a></li>
-                    <li><a href="#">Drop Down 3</a></li>
-                    <li><a href="#">Drop Down 4</a></li>
-                    </ul>
-                </li>
-                <li><a href="contact.html">Contact</a></li>
-
+                    <li class="active"><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/register">Daftar</a></li>
                 </ul>
             </nav><!-- .nav-menu -->
 
-            <a href="courses.html" class="get-started-btn">Get Started</a>
+            <a href="/login" class="get-started-btn">LOGIN</a>
 
             </div>
         </header><!-- End Header -->
@@ -91,13 +71,13 @@
                 <div class="row">
 
                 <div class="col-lg-3 col-md-6 footer-contact">
-                    <h3>Mentor</h3>
+                    <h3>Aplikasi Data Siswa</h3>
                     <p>
                     A108 Adam Street <br>
                     New York, NY 535022<br>
                     United States <br><br>
-                    <strong>Phone:</strong> +1 5589 55488 55<br>
-                    <strong>Email:</strong> info@example.com<br>
+                    <strong>Phone:</strong> {{config('xsekolah.telpon')}}<br>
+                    <strong>Email:</strong> {{config('xsekolah.email')}}<br>
                     </p>
                 </div>
 
@@ -139,7 +119,7 @@
 
             <div class="mr-md-auto text-center text-md-left">
                 <div class="copyright">
-                &copy; Copyright <strong><span>Mentor</span></strong>. All Rights Reserved
+                &copy; Copyright <strong><span>Alvin Fernando 2021</span></strong>. All Rights Reserved
                 </div>
                 <div class="credits">
                 <!-- All the links in the footer should remain intact. -->
@@ -151,7 +131,7 @@
             </div>
             <div class="social-links text-center text-md-right pt-3 pt-md-0">
                 <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="http://www.facebook.com/pertiasiamalang" class="facebook"><i class="bx bxl-facebook"></i></a>
                 <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
                 <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
                 <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>

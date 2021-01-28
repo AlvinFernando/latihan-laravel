@@ -35,6 +35,7 @@ class Xsiswa extends Model
         }return $total != 0 ? round($total/$hitung) : $total;
     }
 
+    //menyambungkan nama depan dengan nama belakang
     public function nama_lengkap(){
         return $this->nama_depan.' '.$this->nama_belakang;
     }

@@ -12,7 +12,13 @@
 */
 
 Route::get('/', 'XSiteController@home');
+Route::get('/register', 'XSiteController@register');
+Route::post('/postregister', 'XSiteController@postregister');
 Route::get('/about', 'XSiteController@about');
+
+
+
+
 
 Route::get('/login', 'AuthController@login')->name('login');
 Route::post('/postlogin', 'AuthController@postlogin');
@@ -20,7 +26,7 @@ Route::get('/logout', 'AuthController@logout');
 
 
 
-
+//middleware auth untuk admin
 Route::group(['middleware' => ['auth', 'checkrole:admin']], function () {
     Route::get('/xsiswa', 'XsiswaController@index');
     Route::post('/xsiswa/create', 'XsiswaController@create');
@@ -33,13 +39,28 @@ Route::group(['middleware' => ['auth', 'checkrole:admin']], function () {
     Route::get('/xguru/{id}/profile', 'XguruController@profile');
     Route::get('/xsiswa/exportExcel', 'XsiswaController@exportExcel');
     Route::get('/xsiswa/exportPDF', 'XsiswaController@exportPDF');
+    Route::get('/xposts', 'XpostController@index')->name('xposts.index');
+    Route::get('xpost/add', [
+        'uses' => 'XpostController@add',
+        'as' => 'xposts.add',
+    ]);
+    Route::post('xpost/create', [
+        'uses' => 'XpostController@create',
+        'as' => 'xposts.create',
+    ]);
 });
 
 
+//middleware untuk admin, siswa
 Route::group(['middleware' => ['auth', 'checkrole:admin,xsiswa']], function () {
     Route::get('/dashboard', 'DashboardController@index');
 });
 
+//Slug tidak boleh mendahului
+Route::get('/{slug}', [
+    'uses' => 'XSiteController@singlexpost',
+    'as' => 'xsite.single.xpost',
+]);
 /*
 Route::get('/good', function () {
     return view('welcome', ['name' => 'Jojo']);

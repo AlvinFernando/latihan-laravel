@@ -16,7 +16,7 @@ class Xmapel extends Model
         return $this->belongsToMany(Xsiswa::class)->withPivot(['nilai']);
     }
 
-
+    //One to many tabel guru->mapel
     public function xguru(){
         return $this->belongsTo(Xguru::class);
     }

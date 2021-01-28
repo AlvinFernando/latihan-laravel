@@ -89,6 +89,7 @@
                             @endif
                         </div>
 
+                        <!-- Combo Box -->
                         <div class="form-group {{$errors->has('jk') ? ' has-error' : ''}}">
                             <label for="exampleFormControlSelect1">Pilih Jenis Kelamin</label>
                             <select name ="jk" class="form-control" id="exampleFormControlSelect1">
@@ -114,12 +115,14 @@
                                 <span class="help-block">{{$errors->first('agama')}}</span>
                             @endif
                         </div>
+                        <!-- End Combo Box -->
 
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Alamat</label>
                             <textarea name ="alamat" class="form-control" id="exampleFormControlTextarea1" rows="3">{{old('alamat')}}</textarea>
                         </div>
 
+                        <!--Input Avatar-->
                         <div class="form-group {{$errors->has('avatar') ? ' has-error' : ''}}">
                             <label for="exampleFormControlTextarea1">Avatar</label>
                             <input type="file" name="avatar" class="form-control">
@@ -140,6 +143,7 @@
 
 @section('footer')
     <script>
+        //Hapus Data Siswa Dengan Tampilan Sweet Alert
         $('.delete-xsiswa').click(function(){
             var xsiswa_id = $(this).attr('xsiswa-id');
             swal({
